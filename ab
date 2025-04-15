@@ -1,0 +1,124 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(
+  MaterialApp(
+    title: 'My First App',
+    debugShowCheckedModeBanner: false,
+     home:Home()
+     ));
+
+class Home extends StatefulWidget {
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _selectedItem = 0;
+  void _onTapItem(int index){
+    setState(() {
+      _selectedItem = index;
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return
+      Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'Home', style: TextStyle(fontSize: 25),),
+          centerTitle: true,
+          ),
+
+          // body: Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //
+          //   children: <Widget>[
+          //   Container(
+          //     padding: EdgeInsets.all(20),
+          //     decoration: BoxDecoration(color: Colors.pink[600]),
+          //     child: Text('app com', style: TextStyle(fontSize: 30,color: Colors.white),),
+          //   ),
+          //
+          //   Container(
+          //     padding: EdgeInsets.all(20),
+          //     decoration: BoxDecoration(color: Colors.pink[600]),
+          //     child: Text('hello', style: TextStyle(fontSize: 30,color: Colors.white),),
+          //   ),
+          //   Container(
+          //     padding: EdgeInsets.all(20),
+          //     decoration: BoxDecoration(color: Colors.pink[600]),
+          //     child: Text('app', style: TextStyle(fontSize: 30,color: Colors.white),),
+          //   )
+          // ],));
+        // body: Column(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //  crossAxisAlignment: CrossAxisAlignment.stretch,
+        // textDirection: TextDirection.rtl,
+        // children: <Widget>[
+        //   Expanded(
+        //     flex: 1,
+        //     child: Container(
+        //       padding: EdgeInsets.all(20),
+        //       decoration: BoxDecoration(color: Colors.blue[600]),
+        //       child: Text('1', style: TextStyle(fontSize: 30,color: Colors.white),),
+        //     ),
+        //   ),
+        //
+        //   Expanded(
+        //     flex: 1,
+        //     child: Container(
+        //       padding: EdgeInsets.all(20),
+        //       decoration: BoxDecoration(color: Colors.grey[600]),
+        //       child: Text('2', style: TextStyle(fontSize: 30,color: Colors.white),),
+        //     ),
+        //   ),
+        //   Expanded(
+        //     flex: 1,
+        //     child: Container(
+        //       padding: EdgeInsets.all(20),
+        //       decoration: BoxDecoration(color: Colors.lime[600]),
+        //       child: Text('3', style: TextStyle(fontSize: 30,color: Colors.white),),
+        //     ),
+        //   ),
+        //
+        body: Center(child: Text('Current Index -$_selectedItem',
+          style: TextStyle(fontSize: 30),)
+        ),
+        bottomNavigationBar: BottomNavigationBar(type: BottomNavigationBarType.
+        fixed,items: const<BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_circle),
+            label: 'Add',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorite',
+          ),
+    BottomNavigationBarItem(
+    icon: Icon(Icons.person_outline),
+    label: 'Profile',
+    ),
+        ],
+          currentIndex: _selectedItem,
+          onTap: _onTapItem,
+          selectedFontSize: 17,
+          selectedItemColor: Colors.red,
+        ),
+      );
+
+
+
+
+
+
+  }
+}
